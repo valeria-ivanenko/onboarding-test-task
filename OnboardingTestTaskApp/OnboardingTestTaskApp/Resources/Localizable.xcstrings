@@ -1,0 +1,116 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "continueButtonTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Continue"
+          }
+        }
+      }
+    },
+    "onboardingTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Let’s setup App for you"
+          }
+        }
+      }
+    },
+    "premiumBodyText1stPart" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Try 7 days for free"
+          }
+        }
+      }
+    },
+    "premiumBodyText2ndPart" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "then"
+          }
+        }
+      }
+    },
+    "premiumBodyText3rdPart" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "per week, auto-renewable"
+          }
+        }
+      }
+    },
+    "premiumPriceText" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "$6.99"
+          }
+        }
+      }
+    },
+    "premiumTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Discover all Premium features"
+          }
+        }
+      }
+    },
+    "startNowButtonTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Start Now"
+          }
+        }
+      }
+    },
+    "termsBodyText1stPart" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "By continuing you accept our: "
+          }
+        }
+      }
+    },
+    "termsLinkBodyText" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Terms of Use, Privacy Policy, Subscription Terms"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.1"
+}
