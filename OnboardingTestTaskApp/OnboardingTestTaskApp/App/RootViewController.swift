@@ -7,13 +7,31 @@
 
 import UIKit
 
-class RootViewController: UIViewController {
-
+// MARK: - RootViewController
+final class RootViewController: UIViewController {
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        view.backgroundColor = .appBackground
+        Task { await load() }
     }
-
-
 }
 
+// MARK: - Private
+private extension RootViewController {
+    func load() async {
+        do {
+            let items = try await OnboardingAPI.shared.fetchOnboarding(from: Constants.apiURL)
+            await MainActor.run {
+                self.navigateToOnboarding(items)
+            }
+        } catch {
+            print("Error: \(error)\n Sorry! The app is unable to load the onboarding data. Please try again later.")
+        }
+    }
+    
+    func navigateToOnboarding(_ items: [OnboardingItem]) {
+        let onboarding = OnboardingCoordinatorViewController(items: items)
+        navigationController?.setViewControllers([onboarding], animated: true)
+    }
+}
