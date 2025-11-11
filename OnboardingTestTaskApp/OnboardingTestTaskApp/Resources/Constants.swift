@@ -10,4 +10,5 @@ import Foundation
 struct Constants {
     static let apiURL = URL(string: "https://test-ios.universeapps.limited/onboarding")!
     static let exampleURL = URL(string: "https://example.com")!
+    static let premiumProductID = "com.example.app.premium"
 }
