@@ -12,6 +12,28 @@
         }
       }
     },
+    "footerBodyText" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "By continuing you accept our: "
+          }
+        }
+      }
+    },
+    "footerLinksBodyText" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Terms of Use, Privacy Policy, Subscription Terms"
+          }
+        }
+      }
+    },
     "onboardingTitle" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -23,35 +45,13 @@
         }
       }
     },
-    "premiumBodyText1stPart" : {
+    "premiumBodyText" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Try 7 days for free"
-          }
-        }
-      }
-    },
-    "premiumBodyText2ndPart" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "then"
-          }
-        }
-      }
-    },
-    "premiumBodyText3rdPart" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "per week, auto-renewable"
+            "value" : "Try 7 days for free\nthen $6.99 per week, auto-renewable"
           }
         }
       }
@@ -78,6 +78,17 @@
         }
       }
     },
+    "privacyText" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Privacy Policy"
+          }
+        }
+      }
+    },
     "startNowButtonTitle" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -89,24 +100,24 @@
         }
       }
     },
-    "termsBodyText1stPart" : {
+    "subscriptionText" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "By continuing you accept our: "
+            "value" : "Subscription Terms"
           }
         }
       }
     },
-    "termsLinkBodyText" : {
+    "termsText" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Terms of Use, Privacy Policy, Subscription Terms"
+            "value" : "Terms of Use"
           }
         }
       }
