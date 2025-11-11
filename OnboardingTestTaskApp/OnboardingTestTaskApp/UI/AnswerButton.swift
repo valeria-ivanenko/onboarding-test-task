@@ -58,12 +58,10 @@ private extension AnswerButton {
     }
     
     func updateAppearance() {
-        UIView.animate(withDuration: 0.2) {
-            var newButtonConfig = self.configuration
-            newButtonConfig?.baseBackgroundColor = self.isSelected ? self.selectedBackgroundColor : self.cardBackgroundColor
-            newButtonConfig?.baseForegroundColor = self.isSelected ? self.selectedTextColor : self.primaryTextColor
-            self.configuration = newButtonConfig
-            self.layer.shadowOpacity = self.isSelected ? 0 : 1
-        }
+        var newButtonConfig = self.configuration
+        newButtonConfig?.baseBackgroundColor = self.isSelected ? self.selectedBackgroundColor : self.cardBackgroundColor
+        newButtonConfig?.baseForegroundColor = self.isSelected ? self.selectedTextColor : self.primaryTextColor
+        self.configuration = newButtonConfig
+        self.layer.shadowOpacity = self.isSelected ? 0 : 1
     }
 }
