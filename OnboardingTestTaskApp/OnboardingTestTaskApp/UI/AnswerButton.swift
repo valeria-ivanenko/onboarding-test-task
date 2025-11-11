@@ -40,18 +40,17 @@ private extension AnswerButton {
     func setupUI() {
         // Padding & Colors
         var buttonConfig = UIButton.Configuration.filled()
-        buttonConfig.contentInsets =  NSDirectionalEdgeInsets(top: 14, leading: 20, bottom: 14, trailing: 20)
+        buttonConfig.contentInsets =  NSDirectionalEdgeInsets(top: 16, leading: 16, bottom: 16, trailing: 16)
         buttonConfig.baseBackgroundColor = cardBackgroundColor
         buttonConfig.baseForegroundColor = primaryTextColor
+        buttonConfig.cornerStyle = .large
         configuration = buttonConfig
         
         // Font & Title alignment
-        titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .regular)
+        titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
         contentHorizontalAlignment = .left
         
         // Shadow
-        layer.cornerRadius = 14
-        layer.masksToBounds = false
         layer.shadowColor = UIColor.black.withAlphaComponent(0.08).cgColor
         layer.shadowOpacity = 1
         layer.shadowOffset = CGSize(width: 0, height: 2)
