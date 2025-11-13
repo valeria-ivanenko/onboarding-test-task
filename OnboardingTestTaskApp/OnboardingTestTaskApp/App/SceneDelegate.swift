@@ -22,7 +22,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let winScene = (scene as? UIWindowScene) else { return }
 
         let window = UIWindow(windowScene: winScene)
-        let rootVC = RootViewController()
+        
+        let rootViewModel = RootViewModel()
+        let rootVC = RootViewController(viewModel: rootViewModel)
     
         let nav = UINavigationController(rootViewController: rootVC)
         nav.setNavigationBarHidden(true, animated: false)
@@ -31,6 +33,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window.makeKeyAndVisible()
         
         self.window = window
+        
+        // we start early prefetch -> improves perceived load time for user
+        rootViewModel.startPrefetch()
     }
 }
 

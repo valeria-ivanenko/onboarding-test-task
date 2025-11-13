@@ -15,19 +15,18 @@ final class OnboardingCoordinatorViewController: UIViewController {
     private var pages: [UIViewController] = []
     
     // MARK: - Fields
-    private var items: [OnboardingItem]
+    private let viewModel: OnboardingViewModel
     private var answersStorage: [Int: String] = [:]
-    private var fetchedProduct: Product?
     
     // MARK: - Inits
-    init(items: [OnboardingItem]) {
-        self.items = items
+    init(viewModel: OnboardingViewModel) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
         setupPages()
     }
     
     required init?(coder: NSCoder) {
-        self.items = []
+        self.viewModel = .init(items: [])
         super.init(coder: coder)
     }
     
@@ -35,6 +34,12 @@ final class OnboardingCoordinatorViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupPageVC()
+        viewModel.onShowAlert = { [weak self] title, message in
+            Task { await self?.showAlert(title, message) }
+        }
+        viewModel.onSubscriptionActivated = { [weak self] in
+            self?.finishOnboarding()
+        }
     }
 }
 
@@ -65,7 +70,7 @@ private extension OnboardingCoordinatorViewController {
     }
     
     func setupPages() {
-        pages = items.map { item in
+        pages = viewModel.items.map { item in
             let cardVC = QuestionCardViewController(item: item)
             cardVC.onContinue = { [weak self] answer in
                 self?.answersStorage[item.id] = answer
@@ -73,13 +78,14 @@ private extension OnboardingCoordinatorViewController {
             }
             return cardVC
         }
-        
-        let saveVC = SaveScreenViewController()
-        
-        saveVC.onSubscribe = { [weak self] in Task { await self?.purchasePremium() } }
-        saveVC.onClose = { [weak self] in self?.finishOnboarding() }
-        
-        pages.append(saveVC)
+
+        let saleVC = SaleScreenViewController()
+        saleVC.onSubscribe = { [weak self] in
+            Task { await self?.viewModel.purchasePremium() }
+        }
+        saleVC.onClose = { [weak self] in self?.finishOnboarding() }
+
+        pages.append(saleVC)
     }
 }
 
@@ -112,38 +118,8 @@ private extension OnboardingCoordinatorViewController {
     }
 }
 
-// MARK: StoreKit 2
+// MARK: - Private
 private extension OnboardingCoordinatorViewController {
-    func fetchProduct() async {
-        do {
-            let products = try await Product.products(for: [Constants.premiumProductID])
-            fetchedProduct = products.first
-        } catch {
-            print("Fetch products failed:", error)
-        }
-    }
-    
-    func purchasePremium() async {
-        await fetchProduct()
-        guard let product = fetchedProduct else { await showAlert("Error", "Product not available."); return }
-        
-        do {
-            let result = try await product.purchase()
-            switch result {
-            case .success:
-                await showAlert("Success", "Subscription activated.")
-            case .userCancelled:
-                await showAlert("Cancelled", "Purchase cancelled.")
-            case .pending:
-                await showAlert("Pending", "Purchase pending.")
-            @unknown default:
-                await showAlert("Error", "Unknown result.")
-            }
-        } catch {
-            await showAlert("Error", "Purchase failed: \(error.localizedDescription)")
-        }
-    }
-    
     @MainActor
     func showAlert(_ title: String, _ message: String) async {
         let ac = UIAlertController(title: title, message: message, preferredStyle: .alert)

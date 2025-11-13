@@ -1,5 +1,5 @@
 //
-//  SaveScreenViewController.swift
+//  SaleScreenViewController.swift
 //  OnboardingTestTaskApp
 //
 //  Created by Valeriia Ivanenko on 10.11.2025.
@@ -7,8 +7,8 @@
 
 import UIKit
 
-// MARK: - SaveScreenViewController
-final class SaveScreenViewController: UIViewController {
+// MARK: - SaleScreenViewController
+final class SaleScreenViewController: UIViewController {
     
     // MARK: - Callbacks
     var onSubscribe: (() -> Void)?
@@ -46,7 +46,7 @@ final class SaveScreenViewController: UIViewController {
 }
 
 // MARK: - Setup
-private extension SaveScreenViewController {
+private extension SaleScreenViewController {
     func setupViews() {
         imageView.image = UIImage(named: "onboarding_illustration")
         imageView.contentMode = .scaleAspectFill
