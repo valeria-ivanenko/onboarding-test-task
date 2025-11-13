@@ -74,12 +74,12 @@ private extension OnboardingCoordinatorViewController {
             return cardVC
         }
         
-        let saveVC = SaveScreenViewController()
+        let saleVC = SaleScreenViewController()
         
-        saveVC.onSubscribe = { [weak self] in Task { await self?.purchasePremium() } }
-        saveVC.onClose = { [weak self] in self?.finishOnboarding() }
+        saleVC.onSubscribe = { [weak self] in Task { await self?.purchasePremium() } }
+        saleVC.onClose = { [weak self] in self?.finishOnboarding() }
         
-        pages.append(saveVC)
+        pages.append(saleVC)
     }
 }
 
